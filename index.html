@@ -53,23 +53,23 @@
         { id: "q1", label: "Is er sprake van een appartement?", type: "radio", options: ["Ja", "Nee"], comment: true, photo: true, conditionalContent: true },
         { id: "q2", label: "Aantal rekenzones?", type: "radio", options: ["1 rekenzone", "2 rekenzones", "3 of meer"], comment: true, photo: true, conditionalContent: true },
         { id: "q3", label: "Warmteopwekking", type: "radio", options: ["Cv ketel", "Warmtepomp", "Hybride warmtepomp", "Stadsverwarming", "Gaskachel/moederhaard", "Blokverwarming", "Elektrische verwarming", "Overig"], comment: true, photo: true, isGemeenschappelijk: true },
-        { id: "q4", label: "Warmteafgifte", type: "radio", options: ["Lokaal", "Radiatoren/convectoren", "Luchtverwarming", "Vloerverwarming"], comment: true, photo: true },
+        { id: "q4", label: "Warmteafgifte", type: "radio", options: ["Lokaal", "Radiatoren/convectoren", "Luchtverwarming", "Vloerverwarming"], comment: true, photo: true, hasCheckbox: "Zijn er verschillende type warmteafgifte? Zo ja, verklaar dit bij opmerkingen" },
         { id: "q5", label: "Aanvoer temperatuur", type: "radio", options: ["90/70", "55/47", "40/45"], comment: true, isDependent: true },
         { id: "q6_pomp", label: "Zijn er extra circulatiepompen aanwezig?", type: "radio", options: ["Ja", "Nee"], comment: true, photo: true, isDependent: true },
         { id: "q7", label: "Regeling verwarming", type: "radio", options: ["Kamerthermostaat", "Centrale regeling per ruimte", "Regeling met naregeling", "Onbekend"], comment: true, photo: true },
-        { id: "q8", label: "Warm tapwater (Badkamer)", type: "radio", options: ["Combi ketel", "Elektrische boiler", "Warmtepomp(boiler)", "Stadsverwarming", "Keukengeiser", "Indirect verwarmd vat"], extra: "Lengte leiding (m):", comment: true, photo: true, isGemeenschappelijk: true },
-        { id: "q9", label: "Warm tapwater (Keuken)", type: "radio", options: ["Combi ketel", "Elektrische boiler", "Quooker", "Warmtepomp", "Stadsverwarming", "Keukengeiser"], extra: "Lengte leiding (m):", comment: true, photo: true, isGemeenschappelijk: true },
+        { id: "q8", label: "Warm tapwater (Badkamer)", type: "radio", options: ["Combi ketel", "Elektrische boiler", "Warmtepomp(boiler)", "Stadsverwarming", "Keukengeiser", "Indirect verwarmd vat"], extra: "Lengte leiding (m):", comment: true, photo: true, hasCheckbox: "Zijn er verschillende tapwater installaties aanwezig? Zo ja, verklaar dit bij opmerkingen", isGemeenschappelijk: true },
+        { id: "q9", label: "Warm tapwater (Keuken)", type: "radio", options: ["Combi ketel", "Elektrische boiler", "Quooker", "Warmtepomp(boiler)", "Stadsverwarming", "Keukengeiser", "Indirect verwarmd vat"], extra: "Lengte leiding (m):", comment: true, photo: true, hasCheckbox: "Zijn er verschillende tapwater installaties aanwezig? Zo ja, verklaar dit bij opmerkingen", isGemeenschappelijk: true },
         { id: "q10", label: "Koeling?", type: "radio", options: ["Ja, airco", "Ja, warmtepomp", "Nee"], extra: "Welke ruimtes:", photo: true },
         { id: "q11", label: "Ventilatie", type: "radio", options: ["A (Natuurlijk)", "B (Mech. toevoer)", "C (Mech. afvoer)", "D (Balans)", "E (Gecombineerd)"], extra: "Type (bijv C1):", isGemeenschappelijk: true },
         { id: "q12", label: "Zonnepanelen / Zonneboiler", type: "radio", options: ["Ja PV", "Ja Zonne Boiler", "Ja beiden", "Nee"], extra: "Aantallen/Oriëntatie:", comment: true, photo: true, conditionalContent: true },
-        { id: "q13", label: "Spouwmuurisolatie", type: "radio", options: ["Ja", "Conform bouwjaar", "Nee"], extra: "Dikte (mm):", comment: true, photo: true },
-        { id: "q14", label: "Dakisolatie", type: "radio", options: ["Ja", "Conform bouwjaar", "Nee"], extra: "Dikte (mm):", comment: true, photo: true },
-        { id: "q15", label: "Vloerisolatie", type: "radio", options: ["Ja", "Conform bouwjaar", "Nee"], extra: "Dikte (mm):", comment: true, photo: true },
-        { id: "q16", label: "Kozijnen", type: "radio", options: ["Hout/Kunstof", "Metaal", "Metaal thermisch onderbroken"], comment: true, photo: true },
-        { id: "q17", label: "Beglazing", type: "radio", options: ["EG", "DG", "HR", "HR+", "HR++", "Triple", "Anders"], comment: true, photo: true },
+        { id: "q13", label: "Spouwmuurisolatie", type: "radio", options: ["Ja", "Conform bouwjaar", "Nee"], extra: "Dikte (mm):", comment: true, photo: true, hasCheckbox: "Zijn er verschillende isolaties aanwezig? Zo ja, verklaar dit bij opmerkingen" },
+        { id: "q14", label: "Dakisolatie", type: "radio", options: ["Ja", "Conform bouwjaar", "Nee"], extra: "Dikte (mm):", comment: true, photo: true, hasCheckbox: "Zijn er verschillende isolaties aanwezig? Zo ja, verklaar dit bij opmerkingen" },
+        { id: "q15", label: "Vloerisolatie", type: "radio", options: ["Ja", "Conform bouwjaar", "Nee"], extra: "Dikte (mm):", comment: true, photo: true, hasCheckbox: "Zijn er verschillende isolaties aanwezig? Zo ja, verklaar dit bij opmerkingen" },
+        { id: "q16", label: "Kozijnen", type: "radio", options: ["Hout/Kunstof", "Metaal", "Metaal thermisch onderbroken"], comment: true, photo: true, hasCheckbox: "Zijn er verschillende kozijnen aanwezig? Zo ja, verklaar dit bij opmerkingen" },
+        { id: "q17", label: "Beglazing", type: "radio", options: ["EG", "DG", "HR", "HR+", "HR++", "Triple", "Anders"], comment: true, photo: true, hasCheckbox: "Zijn er verschillende beglazing aanwezig? Zo ja, verklaar dit bij opmerkingen" },
         { id: "q18", label: "Zonwering", type: "radio", options: ["Ja", "Nee"], extra: "Type & bediening:", conditionalContent: true },
         { id: "q19", label: "Paneel aanwezig?", type: "radio", options: ["Ja, geïsoleerd", "Ja" , "Nee"], comment: true, conditionalContent: true },
-        { id: "q20", label: "Vloer grenst aan?", type: "radio", options: ["Grond", "Kruipruimte", "AVR", "Kelder", "Buiten", "Anders"], comment: true },
+        { id: "q20", label: "Vloer grenst aan?", type: "radio", options: ["Grond", "Kruipruimte", "AVR", "Kelder", "Buiten", "Anders"], comment: true, hasCheckbox: "Grenst vloer aan meer? Zo ja, verklaar dit bij opmerkingen" },
         { id: "q21", label: "Wat is de oriëntatie van de voorgevel van de woning?", type: "radio", options: ["Noord", "Noordoost", "Oost", "Zuidoost", "Zuid", "Zuidwest", "West", "Noordwest"], comment: true, photo: true }
     ];
 
@@ -95,8 +95,18 @@
                 html += `<input type="${q.type}" id="input_${q.id}" onchange="updateValue('${q.id}', this.value)" placeholder="${q.label}...">`;
             }
 
-            let condClass = (q.conditionalContent) ? "hidden" : "";
+           let condClass = (q.conditionalContent) ? "hidden" : "";
             html += `<div id="extra_content_${q.id}" class="${condClass}">`;
+
+            // DIT STUKJE VOEGT DE CHECKBOX TOE
+            if (q.hasCheckbox) {
+                html += `<div class="checkbox-container">
+                    <label style="display:flex; align-items:center; cursor:pointer;">
+                        <input type="checkbox" onchange="updateValue('${q.id}_check', this.checked ? 'Ja' : 'Nee')" style="width:20px; height:20px; margin-right:10px;">
+                        <span style="font-weight:600; color:#1e40af; font-size: 0.95em;">${q.hasCheckbox}</span>
+                    </label>
+                </div>`;
+            }
             if (q.extra) html += `<div style="margin-top:15px;"><label style="font-size:0.9em; font-weight:600;">${q.extra}</label><input type="text" id="extra_input_${q.id}" onchange="updateValue('${q.id}_extra', this.value)"></div>`;
             if (q.comment) html += `<div style="margin-top:15px;"><label style="font-size:0.9em; font-weight:600;">Opmerkingen:</label><textarea onchange="updateValue('${q.id}_comment', this.value)"></textarea></div>`;
             
