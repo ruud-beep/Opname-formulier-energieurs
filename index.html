@@ -150,22 +150,34 @@
         if (el) el.classList.toggle('hidden', !condition);
     }
 
-    function checkAndGenerate() {
+function checkAndGenerate() {
         let errors = [];
         let missing = [];
+        
+        // Reset alle rode randen van de vorige check
         document.querySelectorAll('.card').forEach(c => c.classList.remove('card-error'));
 
         questions.forEach(q => {
             const card = document.getElementById(`card_${q.id}`);
+            // We controleren alleen vragen die niet verborgen zijn en niet optioneel zijn
             if (card && !card.classList.contains('hidden') && !q.isOptional) {
+                
+                // 1. Check of de hoofdvraag is ingevuld
                 if (!formData[q.id]) {
                     missing.push(q.label);
                     card.classList.add('card-error');
                 } 
+                
+                // 2. Check of het bouwjaar binnen de marge valt
                 if (q.id === "bouwjaar" && formData[q.id]) {
                     const bj = parseInt(formData[q.id]);
-                    if (bj < 500 || bj > 2100) { errors.push("Bouwjaar moet tussen 500 en 2100 liggen."); card.classList.add('card-error'); }
+                    if (bj < 500 || bj > 2100) { 
+                        errors.push("Bouwjaar moet tussen 500 en 2100 liggen."); 
+                        card.classList.add('card-error'); 
+                    }
                 }
+                
+                // 3. Check of GBO m2 is ingevuld als 'Gemeenschappelijk' op 'Ja' staat
                 if (q.isGemeenschappelijk && formData[q.id + '_gem'] === 'Ja' && !formData[q.id + '_gem_opp']) {
                     errors.push(`${q.label}: GBO m2 is verplicht bij gemeenschappelijke installatie.`);
                     card.classList.add('card-error');
@@ -173,10 +185,26 @@
             }
         });
 
+        // Als er fouten of ontbrekende vragen zijn, toon dan een keuze-venster
         if (missing.length > 0 || errors.length > 0) {
-            alert("Er zijn fouten gevonden:\n\n" + (missing.length ? "Niet ingevuld:\n- " + missing.join("\n- ") + "\n\n" : "") + (errors.length ? "Fouten:\n- " + errors.join("\n- ") : ""));
-            return;
+            let msg = "Let op: Er zijn onvolledigheden gevonden:\n\n";
+            
+            if (missing.length > 0) {
+                msg += "Niet ingevuld:\n- " + missing.join("\n- ") + "\n\n";
+            }
+            if (errors.length > 0) {
+                msg += "Fouten:\n- " + errors.join("\n- ") + "\n\n";
+            }
+            
+            msg += "Wil je toch doorgaan met opslaan?";
+            
+            // confirm() geeft een OK (true) of Annuleren (false) knop
+            if (!confirm(msg)) {
+                return; // Stop de functie hier als de gebruiker op 'Annuleren' klikt
+            }
         }
+        
+        // Als alles goed is OF de gebruiker heeft op OK geklikt bij de waarschuwing:
         generateWord();
     }
 
@@ -228,7 +256,28 @@
             }
         }
         Packer.toBlob(new Document({ sections: [{ children }] })).then(b => saveAs(b, `Opname_${formData['adres'] || 'rapport'}.docx`));
-    }
+    }// Ondersteuning voor het plakken (paste) van foto's
+    window.addEventListener('paste', function(e) {
+        // Zoek de kaart waar de gebruiker op dit moment met de muis/cursor is
+        const activeElement = document.activeElement;
+        const card = activeElement.closest('.card');
+        
+        if (card) {
+            const questionId = card.id.replace('card_', '');
+            const items = (e.clipboardData || e.originalEvent.clipboardData).items;
+            
+            for (const item of items) {
+                if (item.kind === 'file' && item.type.includes('image')) {
+                    const file = item.getAsFile();
+                    processFile(file, questionId); // Hergebruikt de bestaande verwerkingsfunctie
+                }
+            }
+        } else {
+            // Optioneel: als er geen specifieke kaart geselecteerd is, 
+            // kun je de gebruiker waarschuwen of niets doen.
+            console.log("Klik eerst in een vak om een foto te plakken.");
+        }
+    });
     renderApp();
 </script>
 </body>
