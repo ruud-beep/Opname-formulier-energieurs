@@ -52,7 +52,7 @@
         { id: "opmerkingen", label: "Algemene Opmerkingen", type: "text", isOptional: true },
         { id: "q1", label: "Is er sprake van een appartement?", type: "radio", options: ["Ja", "Nee"], comment: true, photo: true, conditionalContent: true },
         { id: "q2", label: "Aantal rekenzones?", type: "radio", options: ["1 rekenzone", "2 rekenzones", "3 of meer"], comment: true, photo: true, conditionalContent: true },
-        { id: "q3", label: "Warmteopwekking", type: "radio", options: ["Cv ketel", "Warmtepomp", "Hybride warmtepomp", "Stadsverwarming", "Gaskachel/moederhaard", "Blokverwarming", "Elektrische verwarming", "Overig"], comment: true, photo: true, isGemeenschappelijk: true },
+        { id: "q3", label: "Warmteopwekking", type: "radio", options: ["Cv ketel", "Warmtepomp", "Hybride warmtepomp", "Stadsverwarming", "Gaskachel/moederhaard", "Blokverwarming", "Elektrische verwarming", "Overig"], comment: true, photo: true, isGemeenschappelijk: true, hasCheckbox: "Zijn er verschillende type warmteafgifte? Zo ja, verklaar dit bij opmerkingen"  },
         { id: "q4", label: "Warmteafgifte", type: "radio", options: ["Lokaal", "Radiatoren/convectoren", "Luchtverwarming", "Vloerverwarming"], comment: true, photo: true, hasCheckbox: "Zijn er verschillende type warmteafgifte? Zo ja, verklaar dit bij opmerkingen" },
         { id: "q5", label: "Aanvoer temperatuur", type: "radio", options: ["90/70", "55/47", "40/45"], comment: true, isDependent: true },
         { id: "q6_pomp", label: "Zijn er extra circulatiepompen aanwezig?", type: "radio", options: ["Ja", "Nee"], comment: true, photo: true, isDependent: true },
