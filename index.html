@@ -52,7 +52,7 @@
         { id: "opmerkingen", label: "Algemene Opmerkingen", type: "text", isOptional: true },
         { id: "q1", label: "Is er sprake van een appartement?", type: "radio", options: ["Ja", "Nee"], comment: true, photo: true, conditionalContent: true },
         { id: "q2", label: "Aantal rekenzones?", type: "radio", options: ["1 rekenzone", "2 rekenzones", "3 of meer"], comment: true, photo: true, conditionalContent: true },
-        { id: "q3", label: "Warmteopwekking", type: "radio", options: ["Cv ketel", "Warmtepomp", "Hybride warmtepomp", "Stadsverwarming", "Gaskachel/moederhaard", "Blokverwarming", "Elektrische verwarming", "Overig"], comment: true, photo: true, isGemeenschappelijk: true, hasCheckbox: "Zijn er verschillende warmteopwekkers? Zo ja, verklaar dit bij opmerkingen"  },
+        { id: "q3", label: "Warmteopwekking", type: "radio", options: ["Cv ketel", "Warmtepomp", "Hybride warmtepomp", "Stadsverwarming", "Gaskachel/moederhaard", "Blokverwarming", "Elektrische verwarming", "Overig"], comment: true, photo: true, isGemeenschappelijk: true, hasCheckbox: "Zijn er verschillende type warmteafgifte? Zo ja, verklaar dit bij opmerkingen"  },
         { id: "q4", label: "Warmteafgifte", type: "radio", options: ["Lokaal", "Radiatoren/convectoren", "Luchtverwarming", "Vloerverwarming"], comment: true, photo: true, hasCheckbox: "Zijn er verschillende type warmteafgifte? Zo ja, verklaar dit bij opmerkingen" },
         { id: "q5", label: "Aanvoer temperatuur", type: "radio", options: ["90/70", "55/47", "40/45"], comment: true, isDependent: true },
         { id: "q6_pomp", label: "Zijn er extra circulatiepompen aanwezig?", type: "radio", options: ["Ja", "Nee"], comment: true, photo: true, isDependent: true },
@@ -121,10 +121,26 @@
         });
     }
 
-    function updateValue(id, value) {
+  function updateValue(id, value) {
         formData[id] = value;
         const card = document.getElementById(`card_${id}`);
         if(card) card.classList.remove('card-error');
+
+        // --- NIEUWE CODE: Automatisch opmerking invullen ---
+        if (value === "Conform bouwjaar") {
+            // Sla de tekst op in het geheugen voor de Word export
+            formData[id + '_comment'] = "Isolatie dikte niet te meten."; 
+            
+            // Zoek het opmerkingen-vak in beeld en vul de tekst daar ook in
+            if (card) {
+                const textareas = card.getElementsByTagName('textarea');
+                if (textareas.length > 0) {
+                    textareas[0].value = "Isolatie dikte niet te meten.";
+                }
+            }
+        }
+        // --- EINDE NIEUWE CODE ---
+
         checkDependencies();
     }
 
