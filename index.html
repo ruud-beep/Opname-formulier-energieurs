@@ -61,7 +61,7 @@
         { id: "q9", label: "Warm tapwater (Keuken)", type: "radio", options: ["Combi ketel", "Elektrische boiler", "Quooker", "Warmtepomp(boiler)", "Stadsverwarming", "Keukengeiser", "Indirect verwarmd vat"], extra: "Lengte leiding (m):", comment: true, photo: true, hasCheckbox: "Zijn er verschillende tapwater installaties aanwezig? Zo ja, verklaar dit bij opmerkingen", isGemeenschappelijk: true },
         { id: "q10", label: "Koeling?", type: "radio", options: ["Ja, airco", "Ja, warmtepomp", "Nee"], extra: "Welke ruimtes:", photo: true },
         { id: "q11", label: "Ventilatie", type: "radio", options: ["A (Natuurlijk)", "B (Mech. toevoer)", "C (Mech. afvoer)", "D (Balans)", "E (Gecombineerd)"], extra: "Type (bijv C1):", isGemeenschappelijk: true },
-        { id: "q12", label: "Zonnepanelen / Zonneboiler", type: "radio", options: ["Ja PV", "Ja Zonne Boiler", "Ja beiden", "Nee"], extra: "Aantallen/Oriëntatie:", comment: true, photo: true, conditionalContent: true },
+        { id: "q12", label: "Zonnepanelen, Zonneboiler, Accu", type: "radio", options: ["Ja PV", "Ja Zonne Boiler", "Ja, Accu", "Ja, Combinatie", "Nee"], extra: "Aantallen/Oriëntatie:", comment: true, photo: true, conditionalContent: true },
         { id: "q13", label: "Spouwmuurisolatie", type: "radio", options: ["Ja", "Conform bouwjaar", "Nee"], extra: "Dikte (mm):", comment: true, photo: true, hasCheckbox: "Zijn er verschillende isolaties aanwezig? Zo ja, verklaar dit bij opmerkingen" },
         { id: "q14", label: "Dakisolatie", type: "radio", options: ["Ja", "Conform bouwjaar", "Nee"], extra: "Dikte (mm):", comment: true, photo: true, hasCheckbox: "Zijn er verschillende isolaties aanwezig? Zo ja, verklaar dit bij opmerkingen" },
         { id: "q15", label: "Vloerisolatie", type: "radio", options: ["Ja", "Conform bouwjaar", "Nee"], extra: "Dikte (mm):", comment: true, photo: true, hasCheckbox: "Zijn er verschillende isolaties aanwezig? Zo ja, verklaar dit bij opmerkingen" },
@@ -70,7 +70,9 @@
         { id: "q18", label: "Zonwering", type: "radio", options: ["Ja", "Nee"], extra: "Type & bediening:", conditionalContent: true },
         { id: "q19", label: "Paneel aanwezig?", type: "radio", options: ["Ja, geïsoleerd", "Ja" , "Nee"], comment: true, conditionalContent: true },
         { id: "q20", label: "Vloer grenst aan?", type: "radio", options: ["Grond", "Kruipruimte", "AVR", "Kelder", "Buiten", "Anders"], comment: true, hasCheckbox: "Grenst vloer aan meer? Zo ja, verklaar dit bij opmerkingen" },
-        { id: "q21", label: "Wat is de oriëntatie van de voorgevel van de woning?", type: "radio", options: ["Noord", "Noordoost", "Oost", "Zuidoost", "Zuid", "Zuidwest", "West", "Noordwest"], comment: true, photo: true }
+        { id: "q21", label: "Wat is de oriëntatie van de voorgevel van de woning?", type: "radio", options: ["Noord", "Noordoost", "Oost", "Zuidoost", "Zuid", "Zuidwest", "West", "Noordwest"], comment: true, photo: true },
+	{ id: "opmerkingen", label: "Algemene Opmerkingen", comment: true, isOptional: true, photo: true }
+	
     ];
 
     const formData = {}; 
